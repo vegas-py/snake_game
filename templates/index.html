@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="game-container">        <div id="menu" class="screen">
+            <h1>Snake Game</h1>
+            <button id="start-game">Start Game</button>
+            <button id="show-scores">High Scores</button>
+            <button id="show-settings">Sound Settings</button>
+        </div>
+
+        <div id="sound-settings" class="screen hidden">
+            <h2>Sound Settings</h2>            <div class="settings-group">
+                <label>Background Music Volume</label>
+                <input type="range" id="background-volume" min="0" max="100" value="50">
+                <span id="background-volume-value">50%</span>
+                <button id="test-background-music">Test Music</button>
+            </div>
+            <div class="settings-group">
+                <label>Effects Volume</label>
+                <input type="range" id="effects-volume" min="0" max="100" value="50">
+                <span id="effects-volume-value">50%</span>
+            </div>
+            <button id="test-sound">Test Sounds</button>
+            <button id="settings-back">Back to Menu</button>
+        </div>
+
+        <div id="game" class="screen hidden">        <div class="game-header">
+                <span>Score: <span id="score">0</span></span>
+                <div class="game-controls">
+                    <button id="pause-game">Pause</button>
+                    <button id="mute-toggle">Mute</button>
+                </div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+        </div>
+
+        <div id="game-over" class="screen hidden">
+            <h2>Game Over!</h2>
+            <p>Your score: <span id="final-score">0</span></p>
+            <input type="text" id="player-name" placeholder="Enter your name">
+            <button id="submit-score">Submit Score</button>
+            <button id="play-again">Play Again</button>
+            <button id="return-menu">Main Menu</button>
+        </div>
+
+        <div id="high-scores" class="screen hidden">
+            <h2>High Scores</h2>
+            <div id="scores-list"></div>
+            <button id="back-to-menu">Back to Menu</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>
